@@ -1,0 +1,50 @@
+server:
+  port: 8000
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    url: jdbc:oracle:thin:@oracle.coffit.site:1521:xe
+    username:
+    password:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB
+      max-request-size: 10MB
+      location: C:\DEV\04_project\CocktableBOOT
+    web:
+      resources:
+        static-locations: classpath:/images/
+
+  ## jpa config
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    database: oracle
+    properties:
+      hibernate:
+        format_sql: 'true'
+        hql:
+          bulk_id_strategy: 'org.hibernate.hql.spi.id.inline.InlineIdsInClauseBulkIdStrategy'
+
+# swagger-ui custom path
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+image:
+
+  add-resource-locations: classpath:/static/images/
+  add-resource-handler: /images/**
+
+  image-dir: src/main/resources/static/images
+  image-url: http://localhost:8000/images/
+
+# Logging Level
+logging:
+  level:
+    root: info
+
+
+
